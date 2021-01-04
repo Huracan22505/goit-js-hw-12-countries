@@ -15,11 +15,17 @@ function onInputChange() {
 
   query = inputValue;
 
-  API.fetchCountries(query).then(renderCountryCard).catch(onFetchError);
+  if (!query) {
+    return;
+  }
+
+  API.fetchCountries(query).then(renderCountryCard).catch();
 }
 
 function renderCountryCard(country) {
-  if (country.length > 10) {
+  if (country.length == null) {
+    clearInput();
+  } else if (country.length > 10) {
     errMsg.errorMsg();
   } else if (country.length > 1 && country.length <= 10) {
     const markup = countriesListTpl(country);
@@ -32,4 +38,8 @@ function renderCountryCard(country) {
 
 function reset() {
   refs.cardContainer.innerHTML = '';
+}
+
+function clearInput() {
+  refs.input.value = '';
 }
