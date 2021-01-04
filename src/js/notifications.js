@@ -7,10 +7,10 @@ defaults.sticker = false;
 defaults.closer = false;
 defaults.delay = 3000;
 
-function errorMesg() {
+function errorMsg() {
   notice({
     text: 'Too many matches found. Please enter a more speific query!',
   });
 }
 
-export default { errorMesg };
+export default { errorMsg };

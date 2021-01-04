@@ -20,7 +20,7 @@ function onInputChange() {
 
 function renderCountryCard(country) {
   if (country.length > 10) {
-    errMsg.errorMesg();
+    errMsg.errorMsg();
   } else if (country.length > 1 && country.length <= 10) {
     const markup = countriesListTpl(country);
     refs.cardContainer.insertAdjacentHTML('afterbegin', markup);
