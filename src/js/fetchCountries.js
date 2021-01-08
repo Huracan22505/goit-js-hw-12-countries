@@ -19,7 +19,11 @@ function onInputChange() {
     return;
   }
 
-  API.fetchCountries(query).then(renderCountryCard).catch();
+  API.fetchCountries(query)
+    .then(renderCountryCard)
+    .catch(err => {
+      alert('Введите более корректный запрос');
+    });
 }
 
 function renderCountryCard(country) {
